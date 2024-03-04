@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESULTADO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('../static/images/paisaje.jpeg'); /* Cambiar 'ruta-de-tu-imagen.jpg' por la ruta de tu imagen de fondo */
+            background-size: 100% 100%; /* Ajustar la imagen de fondo al tamaño de la ventana */
+            color: #000; /* Texto en color negro */
+            margin: 100;
+            padding: 100;
+        }
+        h1 {
+            color: rgb(215, 215, 223); /* Título en color azul */
+            background-color: #333;
+            padding: 10px;
+        }
+        h2 {
+            color: rgb(255, 255, 255); /* Título en color azul */
+        }
+        table {
+            border-collapse: collapse;
+            margin: 20px auto;
+            width: 80%;
+            color: rgb(255, 255, 255); /* Texto en color blanco */
+        }
+        table, th, td {
+            border: 1px solid #333;
+        }
+        th, td {
+            padding: 10px;
+        }
+        th {
+            background-color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #666;
+        }
+        tr:nth-child(odd) {
+            background-color: #444;
+        }
+        .mejora {
+            background-color: #00FF00;
+        }
+        .resultado {
+            color: rgb(255, 255, 255); /* Texto en color azul */
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>RESULTADO</h1>
+    <table>
+        <tr>
+            <th>Ciudad</th>
+        </tr>
+        {% for ciudad in mejor_ruta.split(" -> ") %}
+        <tr {% if loop.index % 2 == 0 %}class="mejora"{% endif %}>
+            <td>{{ ciudad }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h2 class="resultado">Resultado: {{ resultado }} paquetes</h2>
+</body>
+</html>
